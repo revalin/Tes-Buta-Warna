@@ -1,0 +1,361 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IshiTest - Alat Tes Buta Warna</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-wrapper">
+            <a href="#beranda" class="brand">
+                <span class="brand-icon">I</span>
+                <span>Ishi<span class="brand-blue">Test</span>
+                    <small>COLOR VISION TEST</small>
+                </span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle">☰</button>
+
+            <nav id="navMenu">
+                <a href="#beranda">Beranda</a>
+                <a href="#perangkat">Perangkat</a>
+                <a href="#tes">Tes Ishihara</a>
+                <a href="#hasil">Hasil Tes</a>
+            </nav>
+
+            <span class="status-badge">
+                <span class="status-dot"></span>
+                Mode Simulasi
+            </span>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- BERANDA -->
+        <section class="hero" id="beranda">
+            <div class="container hero-grid">
+
+                <div class="hero-content">
+                    <span class="eyebrow">SISTEM PEMERIKSAAN BERBASIS IoT</span>
+
+                    <h1>
+                        Kenali Penglihatan Warna dengan
+                        <span>Metode Ishihara.</span>
+                    </h1>
+
+                    <p>
+                        Rancangan sistem tes buta warna menggunakan pola
+                        titik berwarna dengan dukungan perangkat NodeMCU
+                        ESP8266, keypad, LCD, dan komponen pendukung lainnya.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#tes" class="btn btn-primary">
+                            Mulai Simulasi <span>→</span>
+                        </a>
+
+                        <a href="#perangkat" class="btn btn-outline">
+                            Lihat Perangkat
+                        </a>
+                    </div>
+
+                    <div class="hero-features">
+                        <div>
+                            <strong>01</strong>
+                            <span>Pola Ishihara</span>
+                        </div>
+                        <div>
+                            <strong>02</strong>
+                            <span>Input Jawaban</span>
+                        </div>
+                        <div>
+                            <strong>03</strong>
+                            <span>Hasil Simulasi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="visual-card">
+                        <div class="visual-top">
+                            <span>ISHIHARA TEST</span>
+                            <span class="visual-number">01 / 06</span>
+                        </div>
+
+                        <div class="ishihara-plate" aria-label="Ilustrasi pola Ishihara">
+                            <div class="plate-number">12</div>
+                        </div>
+
+                        <div class="visual-bottom">
+                            <span class="mini-dot"></span>
+                            Contoh pola titik berwarna
+                        </div>
+                    </div>
+
+                    <div class="floating-info">
+                        <span class="floating-icon">✓</span>
+                        <div>
+                            <strong>Simulasi Pemeriksaan</strong>
+                            <small>Antarmuka alat tes Ishihara</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PERANGKAT -->
+        <section class="section" id="perangkat">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">KOMPONEN SISTEM</span>
+                    <h2>Perangkat yang Digunakan</h2>
+                    <p>
+                        Gambaran komponen utama yang direncanakan
+                        dalam pengembangan alat tes buta warna.
+                    </p>
+                </div>
+
+                <div class="component-grid">
+                    <article class="component-card">
+                        <div class="component-icon blue-icon">MCU</div>
+                        <h3>NodeMCU ESP8266</h3>
+                        <p>
+                            Berfungsi sebagai mikrokontroler untuk
+                            mengendalikan proses kerja alat.
+                        </p>
+                        <span class="component-tag">Pengendali Utama</span>
+                    </article>
+
+                    <article class="component-card">
+                        <div class="component-icon purple-icon">LCD</div>
+                        <h3>LCD I2C</h3>
+                        <p>
+                            Menampilkan informasi dan petunjuk
+                            selama proses pemeriksaan.
+                        </p>
+                        <span class="component-tag">Output Informasi</span>
+                    </article>
+
+                    <article class="component-card">
+                        <div class="component-icon orange-icon">⌗</div>
+                        <h3>Keypad 4×4</h3>
+                        <p>
+                            Digunakan peserta untuk memasukkan
+                            jawaban selama tes berlangsung.
+                        </p>
+                        <span class="component-tag">Input Jawaban</span>
+                    </article>
+
+                    <article class="component-card">
+                        <div class="component-icon green-icon">♪</div>
+                        <h3>Buzzer</h3>
+                        <p>
+                            Memberikan bunyi sebagai penanda
+                            sesuai program alat.
+                        </p>
+                        <span class="component-tag">Indikator Suara</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- TES ISHIHARA -->
+        <section class="section test-section" id="tes">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">SIMULASI PEMERIKSAAN</span>
+                    <h2>Tes Buta Warna Ishihara</h2>
+                    <p>
+                        Masukkan angka yang terlihat pada pola titik
+                        menggunakan keypad virtual di bawah ini.
+                    </p>
+                </div>
+
+                <div class="test-layout">
+
+                    <div class="test-main">
+                        <div class="test-header">
+                            <div>
+                                <span class="small-label">PEMERIKSAAN</span>
+                                <h3 id="questionTitle">Pelat Nomor 1</h3>
+                            </div>
+                            <span class="question-counter" id="questionCounter">
+                                1 dari 6
+                            </span>
+                        </div>
+
+                        <div class="progress-track">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+
+                        <div class="test-content">
+                            <div class="test-plate" id="testPlate">
+                                <div class="test-number" id="testNumber">12</div>
+                            </div>
+
+                            <p class="plate-instruction">
+                                Angka berapa yang kamu lihat pada gambar?
+                            </p>
+
+                            <div class="answer-display">
+                                <span>JAWABAN</span>
+                                <strong id="answerDisplay">_</strong>
+                                <button id="clearAnswer" class="clear-btn"
+                                        type="button">Hapus</button>
+                            </div>
+
+                            <div class="keypad" id="keypad">
+                                <button type="button" data-key="1">1</button>
+                                <button type="button" data-key="2">2</button>
+                                <button type="button" data-key="3">3</button>
+                                <button type="button" data-key="4">4</button>
+                                <button type="button" data-key="5">5</button>
+                                <button type="button" data-key="6">6</button>
+                                <button type="button" data-key="7">7</button>
+                                <button type="button" data-key="8">8</button>
+                                <button type="button" data-key="9">9</button>
+                                <button type="button" data-key="clear"
+                                        class="key-clear">C</button>
+                                <button type="button" data-key="0">0</button>
+                                <button type="button" data-key="submit"
+                                        class="key-submit">✓</button>
+                            </div>
+
+                            <p class="feedback" id="feedback" aria-live="polite">
+                                Silakan masukkan angka yang terlihat.
+                            </p>
+
+                            <div class="test-actions">
+                                <button type="button" class="btn btn-outline"
+                                        id="resetTest">Ulangi Tes</button>
+                                <button type="button" class="btn btn-primary"
+                                        id="nextQuestion">Kirim Jawaban →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="test-sidebar">
+                        <div class="sidebar-card">
+                            <span class="sidebar-icon">i</span>
+                            <h3>Petunjuk Tes</h3>
+                            <ol>
+                                <li>Perhatikan pola titik berwarna.</li>
+                                <li>Identifikasi angka yang terlihat.</li>
+                                <li>Masukkan angka menggunakan keypad.</li>
+                                <li>Kirim jawaban untuk melanjutkan.</li>
+                            </ol>
+                        </div>
+
+                        <div class="sidebar-card device-card">
+                            <span class="small-label">STATUS PERANGKAT</span>
+                            <div class="device-status">
+                                <span class="status-dot"></span>
+                                <strong>Simulasi Aktif</strong>
+                            </div>
+                            <p>
+                                Status ini merupakan contoh tampilan,
+                                bukan pembacaan langsung dari NodeMCU.
+                            </p>
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- HASIL -->
+        <section class="section" id="hasil">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">RINGKASAN PEMERIKSAAN</span>
+                    <h2>Hasil Simulasi Tes</h2>
+                    <p>
+                        Ringkasan jawaban dari sesi simulasi yang
+                        sedang atau telah diselesaikan.
+                    </p>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-top">
+                        <div class="result-icon">✓</div>
+                        <div>
+                            <span class="small-label">STATUS PEMERIKSAAN</span>
+                            <h3 id="resultTitle">Belum ada pemeriksaan selesai</h3>
+                        </div>
+                    </div>
+
+                    <div class="result-stats">
+                        <div>
+                            <span>Soal dijawab</span>
+                            <strong id="resultAnswered">0 / 6</strong>
+                        </div>
+                        <div>
+                            <span>Jawaban sesuai kunci simulasi</span>
+                            <strong id="resultCorrect">0</strong>
+                        </div>
+                        <div>
+                            <span>Waktu pembaruan</span>
+                            <strong id="resultTime">—</strong>
+                        </div>
+                    </div>
+
+                    <div class="result-message" id="resultMessage">
+                        Selesaikan simulasi untuk melihat ringkasan jawaban.
+                    </div>
+
+                    <p class="medical-note">
+                        <strong>Perhatian:</strong> hasil pada halaman ini
+                        hanya untuk demonstrasi antarmuka dan bukan diagnosis
+                        medis. Penentuan hasil tes Ishihara yang sebenarnya
+                        harus mengikuti prosedur dan kunci penilaian yang
+                        tervalidasi serta pemeriksaan tenaga kesehatan.
+                    </p>
+
+                    <button type="button" class="btn btn-primary"
+                            id="restartFromResult">Mulai Tes Lagi</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TENTANG -->
+        <section class="about-section" id="tentang">
+            <div class="container about-content">
+                <div>
+                    <span class="eyebrow">TENTANG SISTEM</span>
+                    <h2>Rancangan alat tes buta warna berbasis IoT.</h2>
+                </div>
+                <p>
+                    Rancangan ini menggambarkan antarmuka pendukung alat
+                    tes buta warna metode Ishihara. NodeMCU ESP8266
+                    direncanakan sebagai pengendali perangkat fisik,
+                    keypad sebagai media input jawaban, dan LCD sebagai
+                    media informasi. Website ini merupakan simulasi
+                    tampilan untuk kebutuhan perancangan dan dokumentasi.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <a href="#beranda" class="brand">
+                <span class="brand-icon">I</span>
+                <span>Ishi<span class="brand-blue">Test</span></span>
+            </a>
+            <p>Rancangan antarmuka sistem tes buta warna metode Ishihara.</p>
+            <span>© <span id="year"></span> IshiTest</span>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+```
